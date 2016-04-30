@@ -10,6 +10,17 @@ The Environment Settings object, is basically all global information pertaining 
 So, an environment settings object in the dom code, must be initialized and associated when we initialize instances of a window object, and a worker object, a shared worker, or a service worker object. These objects all have seperate execution contexts, so they will have different settings object.
 
 Environment settings object should define the following fields, that can be queried by scripts having the same parent execution context:
+
 * Script execution environment - basically the the parent execution context, holding the exection context stack, the global code, the function code and function objects.
 
 * the global object of the script (defaults to window object inside a window)
+
+* the browsing context associated with the object in context.
+
+* a reference to the event loop
+
+* character URl encoding of the document
+
+* base url for api's called from the the script, that use this settings object.
+
+* origin url
