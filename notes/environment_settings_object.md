@@ -11,16 +11,16 @@ So, an environment settings object in the dom code, must be initialized and asso
 
 Environment settings object should define the following fields, that can be queried by scripts having the same parent execution context:
 
-* Script execution environment - basically the the parent execution context, holding the exection context stack, the global code, the function code and function objects.
+* Script execution environment - basically the the parent execution context, holding the exection context stack, the global code, the function code and function objects. `JSContext`
 
-* the global object of the script (defaults to window object inside a window)
+* the global object of the script (defaults to window object inside a window) `GlobalRef`
 
-* the browsing context associated with the object in context.
+* the browsing context associated with the object in context. `BrowsingContext`
 
 * a reference to the event loop
 
-* character URl encoding of the document
+* character URl encoding of the document (a utf-8)
 
-* base url for api's called from the the script, that use this settings object.
+* base url for api's called from the the script, that use this settings object. (document url)
 
 * origin url
