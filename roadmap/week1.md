@@ -21,4 +21,5 @@ pub enum RequestSource {
 
 Which serves to provide, a wrapper for client requests (the `LoadData`) that are controlled by service workers, to allow to send an Optional CustomResponse, to the network code.
 
-- [ ] - Hooking the interface's receiver side to ScriptThread's Event Loop. The script thread needs a seperate channel pair to receive events.
+
+- [ ] - Hooking the interface's receiver side to ScriptThread's Event Loop. The script thread needs a seperate channel pair to receive the network side's sender, which needs to be created at the instantiation of the script thread. Then inside `handle_msg()`, we match on the received events, and if we get the the sender, we check whether the current document, is controlled by any active service worker. If it is, then we send a custom response, to the sender.
