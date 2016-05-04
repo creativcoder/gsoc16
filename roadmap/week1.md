@@ -23,3 +23,7 @@ Which serves to provide, a wrapper for client requests (the `LoadData`) that are
 
 
 - [ ] - Hooking the interface's receiver side to ScriptThread's Event Loop. The script thread needs a seperate channel pair to receive the network side's sender, which needs to be created at the instantiation of the script thread. Then inside `handle_msg()`, we match on the received events, and if we get the the sender, we check whether the current document, is controlled by any active service worker. If it is, then we send a custom response, to the sender.
+
+(Update)
+
+A seperate channel was created under script_thread.rs, that will facilitate fetching an `IpcSender<Option<CustomResponse>>`, towards script_thread.rs, that will then be used to send, the a custom response. to network code, in case the document is controlled by a service worker, and the client opts in for a custom response, which is invoked inside the FetchEvent.
