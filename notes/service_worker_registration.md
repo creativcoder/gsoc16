@@ -1,5 +1,10 @@
 
-##### Notes on ServiceWorkerRegistration
+##### ServiceWorkerRegistration
+
+This interface, holds active, installing and waiting service workers.
+
+It is consulted, whenever a navigation or a fetch, event occurs, 
+to get the active service worker and act accordingly.
 
 Service Worker Registration match should be done in longest-prefix-match way.
 
