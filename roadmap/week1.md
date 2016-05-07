@@ -1,4 +1,6 @@
 
+This weeks goals:
+
 ### Prerequisites for Fetch Event Handling in the `components/net`
 
 ##### Interfaces for Intercepting Network Requests under, Window and Worker Scope.
