@@ -18,7 +18,8 @@ ServiceWorker:
 ServiceWorkerContainer:
 
 - [X] - GetController
-- [X] - Register - Add more error handling to script Urls, and improve tests.
+- [X] - Register - Add more error handling to script Urls, and improve tests. Fix a bug of scope urls not being matched, even when provided
+					from the webidl dictionary RegistrationOptions.
 
 
 (Update) - May 10 2016
