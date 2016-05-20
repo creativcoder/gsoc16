@@ -7,7 +7,7 @@ Implement the Building blocks for Service Workers
 
 - [X] - ServiceWorker
 - [X] - ServiceWorkerContainer (focused on the Register Method)
-- [ ] - ServiceWorkerRegistration
+- [X] - ServiceWorkerRegistration basic interface
 - [X] - ServiceWorkerGlobalScope
 
 ServiceWorker: 
