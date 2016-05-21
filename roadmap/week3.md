@@ -1,7 +1,7 @@
 
 This weeks goals: 
 
-- [ ] Integrate Service Worker Client with the interfaces built in previous week.
+- [X] Integrate Service Worker Client with the interfaces built in previous week.
 
 Service Worker Client represents a browsing context or a document which is currently browsing,
 the pages, and which may be possibly controlled by any registered service worker.
@@ -17,9 +17,9 @@ From the spec, the Client interface is to be instantiated, at the time of creati
 of service workers.
 
 
-- [ ] Decide on the location of persisting of the registration maps. This would probably be under service workercontainer instance,
+- [X] Decide on the location of persisting of the registration maps. This would probably be under serviceworkercontainer instance,
 as its alive for the duration of the window object.
 
-- [ ] Improve wpt-tests for registration object and scope urls.
+- [X] Create constructs for matching and getting the registration objects from the registration map.
 
-- [ ] Create constructs for matching and getting the registration objects from the registration map.
+- [ ] Improve wpt-tests for registration object and scope urls.
