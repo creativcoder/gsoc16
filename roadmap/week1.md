@@ -1,5 +1,5 @@
 
-This weeks goals:
+This weeks goals: (Completed [PR](https://github.com/servo/servo/pull/10961/files))
 
 ### Prerequisites for Fetch Event Handling in the `components/net`
 
