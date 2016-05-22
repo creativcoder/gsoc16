@@ -23,3 +23,35 @@ as its alive for the duration of the window object.
 - [X] Create constructs for matching and getting the registration objects from the registration map.
 
 - [ ] Improve wpt-tests for registration object and scope urls.
+
+Update (May 21 2016)
+
+Experiment with hooking the event handling for fetch events; as of now a basic `ServiceWorkerFetchHandler` struct has been implementation which can be used by the FetchEvent interface, to handle events related to network load.
+
+```rust
+
+pub struct ServiceWorkerFetchHandler {
+    addr: TrustedServiceWorkerAddress,
+    request: LoadData 
+}
+
+impl ServiceWorkerFetchHandler {
+    pub fn new(addr: TrustedServiceWorkerAddress, request: LoadData) -> ServiceWorkerFetchHandler {
+        ServiceWorkerFetchHandler {
+            addr: addr,
+            request: request
+        }
+    }
+} 
+
+impl Runnable for ServiceWorkerFetchHandler {
+    fn handler(self: Box<ServiceWorkerFetchHandler>) {
+        let this = *self;
+        ServiceWorker::handle_fetch(this.addr, this.request);
+    }
+}
+
+```
+
+
+
