@@ -9,13 +9,13 @@ This weeks goals:
 
 ```rust
 
-pub type CustomResponseSender = IpcSender<IpcSender<Option<CustomResponse>>>;
-pub type CustomResponseReceiver = IpcReceiver<IpcReceiver<Option<CustomResponse>>>;
+pub type CustomResponseSender = IpcSender<Option<CustomResponse>>;
+pub type CustomResponseReceiver = IpcReceiver<Option<CustomResponse>>;
 
 #[derive(Clone, Deserialize, Serialize, HeapSizeOf)]
 pub enum RequestSource {
-    Window(#[ignore_heap_size_of = "Defined in Std"] CustomResponseSender),
-    Worker(#[ignore_heap_size_of = "Defined in Std"] CustomResponseSender),
+    Window(#[ignore_heap_size_of = "Defined in Std"] IpcSender<CustomResponseSender>),
+    Worker(#[ignore_heap_size_of = "Defined in Std"] IpcSender<CustomResponseSender>),
     None
 }
 
@@ -26,11 +26,11 @@ Which serves to provide, a wrapper for client requests (the `LoadData`) that are
 
 - [X] - Hooking the interface's receiver side to ScriptThread's Event Loop. The script thread needs a seperate channel pair to receive the network side's sender, which needs to be created at the instantiation of the script thread. Then inside `handle_msg()`, we match on the received events, and if we get the the sender, we check whether the current document, is controlled by any active service worker. If it is, then we send a custom response, to the sender.
 
-(Update)
+(Update 04/05/16)
 
 A seperate channel was created under script_thread.rs, that will facilitate fetching an `IpcSender<Option<CustomResponse>>`, towards `script_thread.rs`, that will then be used to send, the a custom response. to network code, in case the document is controlled by a service worker, and the client opts in for a custom response, which is invoked inside the FetchEvent.
 
-A handler function was added, under script thread
+A handler function was added, under script thread, and here's an example of sending a mock response, to the network code.
 
 ```rust
 fn handle_custom_msg(&self, msg: IpcSender<Option<CustomResponse>>) {
@@ -66,3 +66,18 @@ let (msg_sender, msg_receiver) = ipc::channel().unwrap();
 ```
 
 The Pending loads initiated from the `document.rs`, also need to be tracked upon, so we also add a `source` field to `PendingAsyncLoad`, to intercept network requests from that as well. Similarly the `xmlhttprequest.rs` also needs to be modified accordingly under its `Send` method.
+
+(Update 09/05/16)
+
+The `LoadData` constructor was modified to, take a trait object which represents common routines for knowing things about a request as:
+
+```rust
+
+pub trait LoadOrigin {
+    fn referrer_url(&self) -> Option<Url>;
+    fn referrer_policy(&self) -> Option<ReferrerPolicy>;
+    fn request_source(&self) -> RequestSource;
+    fn pipeline_id(&self) -> Option<PipelineId>;
+}
+
+```
