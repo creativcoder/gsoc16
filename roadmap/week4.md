@@ -1,10 +1,12 @@
 
 This weeks goals:
 
-Create interfaces for Script thread, to communicate a navigate event, or a network load event. to the
+- [ ] Create interfaces for Script thread, to communicate a navigate event, or a network load event. to the
 ServiceWorkerContainer's event loop.
 
-Implement the FetchEvent interface 
+- [ ] Implement Activate Event mechanism, on serviceworkerglobalscope.
+
+- [ ] Implement the FetchEvent interface. 
 
 In the current implementation the ServiceWorkerContainer will act as a broker for getting the mentioned events.
 
