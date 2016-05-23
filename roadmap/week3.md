@@ -22,7 +22,7 @@ as its alive for the duration of the window object.
 
 - [X] Create constructs for matching and getting the registration objects from the registration map.
 
-- [ ] Improve wpt-tests for registration object and scope urls.
+- [X] Improve wpt-tests for registration object and scope urls.
 
 Update (May 21 2016)
 
