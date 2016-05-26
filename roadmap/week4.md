@@ -1,10 +1,10 @@
 
 This weeks goals:
 
-- [ ] Create interfaces for Script thread, to communicate a navigate event, or a network load event. to the
+- [X] Create interfaces for Script thread, to communicate a navigate event, or a network load event. to the
 ServiceWorkerContainer's event loop.
 
-- [ ] Implement Activate Event mechanism, on serviceworkerglobalscope.
+- [X] Implement Activate Event mechanism, on serviceworkerglobalscope.
 
 - [ ] Implement the FetchEvent interface. 
 
@@ -22,9 +22,12 @@ enum NetworkEvent {
 }
 ```
 
-For navigation, in window, handle_navigate() method, will send the serviceworkercontainer's, event loop, a navigate event.
+The contellation will send the serviceworkercontainer's, event loop, a navigate event, by using the received sender,
+which was passed to it when register is called.
 
-The serviceworkercontainer upon receiving the event from window,
+The constellation keeps a map of registered service workers, keyed by their scope url.
+
+The serviceworkercontainer upon receiving the event from constellation,
 
 1) It will check whether the active worker's (i.e., serviceWorker.controller), registration's scope url, falls under the received url's path fragment from load_data, and if it matches it will dispatch the fetch event on the serviceWorker.controller.
 
