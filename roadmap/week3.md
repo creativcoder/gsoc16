@@ -53,5 +53,3 @@ impl Runnable for ServiceWorkerFetchHandler {
 
 ```
 
-
-

@@ -1,7 +1,7 @@
 
 This weeks goals:
 
-- [X] Create interfaces for Script thread, to communicate a navigate event, or a network load event. to the
+- [X] Create interfaces for Constellation, to communicate a navigate event, or a network load event. to the
 ServiceWorkerContainer's event loop.
 
 - [X] Implement Activate Event mechanism, on serviceworkerglobalscope.
