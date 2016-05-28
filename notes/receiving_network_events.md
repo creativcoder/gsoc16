@@ -55,3 +55,14 @@ Request::Script(FromScriptMsg::LoadUrl(source_id, load_data)) => {
                 self.handle_load_url_msg(source_id, load_data);
             }
 ```
+
+(Update 28 May 2016)
+
+Over few iterations on the design of receiving events, the ideal approach can be:
+
+The register method should be given following capabilites apart from steps mentioned in the spec:
+- install the service worker - creating the ServiceWorker object.
+- creating a registration object, then store the previously created service worker inside it.
+- spawn an event loop, which can listen global network events, from the constellation
+- match on the receive events and query the script thread's local registration map
+- if we match on the registration, then call `run_serviceworker_scope`
