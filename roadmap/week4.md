@@ -32,3 +32,8 @@ The serviceworkercontainer upon receiving the event from constellation,
 1) It will check whether the active worker's (i.e., serviceWorker.controller), registration's scope url, falls under the received url's path fragment from load_data, and if it matches it will dispatch the fetch event on the serviceWorker.controller.
 
 2) If not, it will hand over the received url from load_data to match_registration() ([Match Algorithm](https://slightlyoff.github.io/ServiceWorker/spec/service_worker/#scope-match-algorithm)), if a registration is found then it will spawn the service worker thread, switch its state to active, and dispatch the fetch event on it.
+
+From discussion with Josh,
+
+The registration map for the storing all registrations per origin, should be stored in each script thread's local storage, to avoid duplicating
+the regisration objects.
