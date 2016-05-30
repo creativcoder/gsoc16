@@ -8,19 +8,23 @@ So an approach would be to introduce a:
 `HashMap<Url, IpcSender<NetworkEvent>>` as a field in constellation, so that it can store service worker descriptors keyed by their scope.
 
 Under `serviceworkercontainer.rs`
-
-let (container_sender, container_receiver) = ipc::channel().unwrap();
-        self.global().r().constellation_chan().send(ScriptMsg::NewServiceWorker(scope.clone(), container_sender.clone()));
-
-        // A event loop to receive any load or navigate events from constellation
-        spawn_named("ServiceWorkerContainerEventThread".to_owned(), move || {
+```rust
+        let (to_constellation_sender, event_from_constellation) = ipc::channel().unwrap();
+        // these sender pairs are used to forward messages, to the sw-global scope, so that it becomes active from the
+        // dormant state.
+        let (scope_sender, scope_receiver) = ipc::channel().unwrap();
+        global_ref.constellation_chan().send(ScriptMsg::ServiceWorkerDescriptor(scope.clone(), to_constellation_sender.clone()));
+        // This listens for events from constellation
+        activate_serviceworker(global_ref, &*active_worker, script_url.clone(), closing, sender, receiver, scope_receiver);
+        thread::spawn(move || {
             loop {
-                match container_receiver.try_recv() {
-                    Ok(val) => {/*do stuff*/},
-                    Err(e) => {}
+                match event_from_constellation.try_recv() {
+                    Ok(status) => scope_sender.send(status).unwrap(),
+                    Err(_) => {}
                 }
             }
         });
+```
 
 So we spawn an event loop under serviceworkercontainer and start listening for network event.
 
