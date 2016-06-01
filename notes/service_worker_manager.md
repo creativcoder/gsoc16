@@ -53,3 +53,24 @@ impl ServiceWorkerMessenger for IpcSender<ServiceWorkerMsg> {
 pub trait ServiceWorkerMessenger {
     fn new() -> Self;
 }
+
+Update 01 June 2016
+
+Some discussions over irc.
+
+Cases we need to handle:
+1) same-origin request matches active service worker, 
+2) cross-origin request matches active service worker,
+3) same-origin request matches inactive service worker,
+4) cross-origin request matches inactive service worker
+
+Entities outside the script thread, must not store JS<T> types as they 
+do not have a reference to their runtime, in which JS objects live in.
+
+Trait objects must not be sent cross process.
+
+Upon, calling `register()` from service worker container, the script thread, is instructed to store the scope url and the Boxed closure to its,
+local storage.
+
+When constellation receives the navigation events, then it notifies the script thread, along with a (sender to the service worker manager), that 
+script thread can use to send the activator closure to the manager, so that it call call the closure to spawn the respective service worker.
