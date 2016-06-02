@@ -74,3 +74,6 @@ local storage.
 
 When constellation receives the navigation events, then it notifies the script thread, along with a (sender to the service worker manager), that 
 script thread can use to send the activator closure to the manager, so that it call call the closure to spawn the respective service worker.
+
+The SW manager's need to be one per content process, and one per constellation, to be able to send a sender, to it, from each script thread
+that gets created.

@@ -1,5 +1,5 @@
 
-This weeks goals: 
+This weeks goals: Merged in [PR](https://github.com/servo/servo/pull/11114)
 
 Implement the Building blocks for Service Workers
 
@@ -24,6 +24,6 @@ ServiceWorkerContainer:
 
 (Update) - May 19 2016
 
-The [PR](https://github.com/servo/servo/pull/11114) Consists of the related interfaces required for basic, working of the service worker against a specified scope, and the ability to maintain a registration map, and ability to instantiate the registration of the service workers.
+The [PR]() Consists of the related interfaces required for basic, working of the service worker against a specified scope, and the ability to maintain a registration map, and ability to instantiate the registration of the service workers.
 
 In [PR](https://github.com/servo/servo/pull/11114), ServiceWorkerContainer interface's controller attribute's manipulation was facilitated by making available a trait based method, on it, and passing it to the registration interface, so that it may set the controller attribute from that side.

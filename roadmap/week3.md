@@ -1,5 +1,5 @@
 
-This weeks goals: 
+This weeks goals: Merged in [PR](https://github.com/servo/servo/pull/11114)
 
 - [X] Integrate Service Worker Client with the interfaces built in previous week.
 
