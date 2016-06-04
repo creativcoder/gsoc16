@@ -6,34 +6,10 @@ ServiceWorkerContainer's event loop.
 
 - [X] Implement Activate Event mechanism, on serviceworkerglobalscope.
 
-- [ ] Implement the FetchEvent interface. 
+- [ ] Integrate the service worker manager thread in the init phase of content-process and constellation initialization
 
-In the current implementation the ServiceWorkerContainer will act as a broker for getting the mentioned events.
-
-An approach towards the api can be something like:
-
-The service worker container will, spawn a thread upon initialization, for listening to events from the window "load" or "navigation" events.
-
-```rust
-
-enum NetworkEvent {
-  LoadEvent(LoadData),
-  NavigateEvent(LoadData),
-}
-```
-
-The contellation will send the serviceworkercontainer's, event loop, a navigate event, by using the received sender,
-which was passed to it when register is called.
-
-The constellation keeps a map of registered service workers, keyed by their scope url.
-
-The serviceworkercontainer upon receiving the event from constellation,
-
-1) It will check whether the active worker's (i.e., serviceWorker.controller), registration's scope url, falls under the received url's path fragment from load_data, and if it matches it will dispatch the fetch event on the serviceWorker.controller.
-
-2) If not, it will hand over the received url from load_data to match_registration() ([Match Algorithm](https://slightlyoff.github.io/ServiceWorker/spec/service_worker/#scope-match-algorithm)), if a registration is found then it will spawn the service worker thread, switch its state to active, and dispatch the fetch event on it.
-
-From discussion with Josh,
-
-The registration map for the storing all registrations per origin, should be stored in each script thread's local storage, to avoid duplicating
-the regisration objects.
+The current implementation now; has a `ServiceWorkerManager`, which is the co-ordinator, of all running service workers, requested to  be started by any script_thread.
+This `ServiceWorkerManager` has to have a single instance, for the initial launch of servo.
+The `script::init()` can be an ideal place where we can initialize it and pass on its sender to the contellation
+The constellation saves this sender.
+When navigations occur, the constellation sends the navigate message to script thread, the script thread, then checks for its local registration map, and if it finds a registration that matches the scope, it sends the message back to constellation, with the serializable entities that `ServiceWorkerManager`, will be able to spawn a worker from them.

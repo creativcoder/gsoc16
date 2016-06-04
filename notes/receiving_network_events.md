@@ -24,9 +24,7 @@ Under `serviceworkercontainer.rs`
                 }
             }
         });
-```
-
-So we spawn an event loop under serviceworkercontainer and start listening for network event.
+```.
 
 Over constellation side,
 
@@ -71,44 +69,24 @@ The register method should be given following capabilites apart from steps menti
 - match on the receive events and query the script thread's local registration map
 - if we match on the registration, then call `run_serviceworker_scope`
 
-
-To Resolve: 
-
-The current implementation, of the service worker event loop, always stays running, when registered.
-
-```rust
-loop {
-                match from_constellation_port.try_recv() {
-                    Ok(load_msg) => {
-                        match load_msg {
-                            FromScriptMsg::LoadUrl(pipeline_id, load_data) => {
-                            debug!("load msg from {:?} {:?}",pipeline_id, load_data.url);
-                            },
-                            _ => {}
-                        }
-                        scope.mem_profiler_chan().run_with_memory_reporting(|| {
-                        // Service workers are time limited
-                        let sw_lifetime = Instant::now();
-                        let sw_lifetime_timeout = prefs::get_pref("dom.serviceworker.timeout_seconds").as_u64().unwrap();
-                            while let Ok(event) = global_for_event.receive_event() {
-                                if scope.is_closing() {
-                                    break;
-                                }
-                                global_for_event.handle_event(event);
-                                if sw_lifetime.elapsed().as_secs() == sw_lifetime_timeout {
-                                    break;
-                                }
-                            }
-                        }, reporter_name.clone(), parent_sender.clone(), CommonScriptMsg::CollectReports);
-                    },
-                    Err(_) => {/*Loop again for next event from constellation */}
-                }
-            }
-```
-
 The ideal behaviour from the spec, should be to be able to call `activate_serviceworker_scope` at will, whenever
 we actually have any navigation which is in interest to the registered service worker.
 There needs to be a service worker manager thread, that should be able to spawn service workers, upon
 receiving events from constellation. The api, of activate_serviceworker_scope should be such that it does,
 not depend on GlobalRef, but instead must be provisioned required entities, as individual entities.
 There needs to be a mediation, from the script thread, between constellation and the service worker manager thread.
+
+The contellation will send the service worker manager, event loop, a navigate event, by using the received sender.
+
+The constellation keeps a map of registered service workers, keyed by their scope url.
+
+The script_thread upon receiving the event from constellation,
+
+1) It will check whether the active worker's (i.e., serviceWorker.controller), registration's scope url, falls under the received url's path fragment from load_data, and if it matches it will dispatch the fetch event on the serviceWorker.controller.
+
+2) If not, it will hand over the received url from load_data to match_registration() ([Match Algorithm](https://slightlyoff.github.io/ServiceWorker/spec/service_worker/#scope-match-algorithm)), if a registration is found then it will spawn the service worker thread, switch its state to active, and dispatch the fetch event on it.
+
+From discussion with Josh,
+
+The registration map for the storing all registrations per origin, should be stored in each script thread's local storage, to avoid duplicating
+the regisration objects.
