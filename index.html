@@ -1,0 +1,29 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dummy Service Worker Tests</title>
+</head>
+<body>
+<div id="registration">
+	<a href="http://localhost:8000/dashboard">Dashboard</a>
+	<a href="http://localhost:8000/profile">Profile</a>
+	<button onclick="register_one()">Test for Dashboard</button>
+	<button onclick="register_two()">Test for Profile</button>
+</div>
+	<script>
+	function register_one() {
+	var reg = navigator.serviceWorker.register('sw.js', { 'scope': '/dashboard' });
+	console.log("From client worker registered: ", navigator.serviceWorker.controller);
+	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
+	}
+
+	function register_two() {
+	var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile' });
+	console.log("From client worker registered: ", navigator.serviceWorker.controller);
+	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
+	}
+	</script>
+</body>
+</html>

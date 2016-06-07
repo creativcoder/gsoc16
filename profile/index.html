@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profile Page</title>
+</head>
+<body>
+	Profile Page has an <div id="placeholder"></div>
+	<a href="/">Go to home</a>
+</body>
+<script>
+	
+	function register_profile_worker() {
+		var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile.html' });
+	console.log("From client worker registered: ", navigator.serviceWorker.controller);
+	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
+	}
+</script>
+</html>
