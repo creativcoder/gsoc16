@@ -7,20 +7,20 @@
 </head>
 <body>
 <div id="registration">
-	<a href="http://localhost:8000/dashboard">Dashboard</a>
-	<a href="http://localhost:8000/profile">Profile</a>
+	<a href="/dashboard.html">Dashboard</a>
+	<a href="/profile.html">Profile</a>
 	<button onclick="register_one()">Test for Dashboard</button>
 	<button onclick="register_two()">Test for Profile</button>
 </div>
 	<script>
 	function register_one() {
-	var reg = navigator.serviceWorker.register('sw.js', { 'scope': '/dashboard' });
+	var reg = navigator.serviceWorker.register('sw.js', { 'scope': '/dashboard.html' });
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
 
 	function register_two() {
-	var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile' });
+	var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile.html' });
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
