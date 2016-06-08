@@ -7,13 +7,14 @@
 </head>
 <body>
 <div id="registration">
-	<a href="/dashboard.html">Dashboard</a>
-	<a href="/profile.html">Profile</a>
-	 <iframe id="iframe_sw" width="200" height="200"></iframe>
-	<button onclick="register_one()">Test for Root</button>
-	<button onclick="register_one()">Test for Dashboard</button>
-	<button onclick="register_two()">Test for Profile</button>
-	<button onclick="register_three()">Test for Iframe</button>
+	<a href="/dashboard.html">Go to Dashboard</a>
+	<a href="/profile.html">Go to Profile</a>
+	 <iframe id="iframe_sw" width="" height="200"></iframe>
+	 <br>
+	<button onclick="register_one()">Register for Root</button>
+	<button onclick="register_one()">Register for Dashboard</button>
+	<button onclick="register_two()">Register for Profile</button>
+	<button onclick="register_three()">Register for Iframe</button>
 </div>
 	<script>
 
@@ -39,11 +40,6 @@
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
-
-	/*function register_three() {
-	
-	}*/
-
 
 	</script>
 </body>
