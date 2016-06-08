@@ -1,11 +1,11 @@
 
-This weeks goals: Merged in [PR](https://github.com/servo/servo/pull/11114)
+This week's goals: Merged in [PR](https://github.com/servo/servo/pull/11114)
 
 Implement the Building blocks for Service Workers
 
 (Interfaces)
 
-- [X] - ServiceWorker - The interface which represents a service worker, contains state information and methods to communcate to the document via postMessage.
+- [X] - ServiceWorker - The interface which represents a service worker, contains state information and methods to communicate to the document via postMessage.
 - [X] - ServiceWorkerContainer (focused on the Register Method) - Provides facilities to register the service worker, currently has only the register method implemented.
 - [X] - ServiceWorkerRegistration basic interface - Holds the service worker registration and their scope url, which they intend to control.
 - [X] - ServiceWorkerGlobalScope - holds the execution environment of a Service worker in execution.

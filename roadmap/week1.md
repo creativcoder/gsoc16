@@ -1,5 +1,5 @@
 
-This weeks goals: (Merged to Upstream [PR](https://github.com/servo/servo/pull/10961))
+This week's goals: (Merged in [PR](https://github.com/servo/servo/pull/10961))
 
 ### Prerequisites for Fetch Event Handling in the `components/net`
 
