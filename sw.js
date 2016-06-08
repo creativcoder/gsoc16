@@ -1,2 +1,1 @@
-importScripts('dummy.js');
-console.log("dashboard service worker: active");
+console.log("root service worker: active");

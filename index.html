@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +9,27 @@
 <div id="registration">
 	<a href="/dashboard.html">Dashboard</a>
 	<a href="/profile.html">Profile</a>
+	 <iframe id="iframe_sw" width="200" height="200"></iframe>
+	<button onclick="register_one()">Test for Root</button>
 	<button onclick="register_one()">Test for Dashboard</button>
 	<button onclick="register_two()">Test for Profile</button>
+	<button onclick="register_three()">Test for Iframe</button>
 </div>
 	<script>
+
+	var reg = navigator.serviceWorker.register('iframe_sw.js', { 'scope': '/demo_iframe.html' });
+	console.log("From client worker registered: ", navigator.serviceWorker.controller);
+	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
+	var iframe = document.getElementById('iframe_sw').src = 'demo_iframe.html';
+
+	function register_zero() {
+	var reg = navigator.serviceWorker.register('sw.js', { 'scope': './' });
+	console.log("From client worker registered: ", navigator.serviceWorker.controller);
+	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
+	}
+
 	function register_one() {
-	var reg = navigator.serviceWorker.register('sw.js', { 'scope': '/dashboard.html' });
+	var reg = navigator.serviceWorker.register('sw_dashboard.js', { 'scope': '/dashboard.html' });
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
@@ -24,6 +39,12 @@
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
+
+	/*function register_three() {
+	
+	}*/
+
+
 	</script>
 </body>
 </html>
