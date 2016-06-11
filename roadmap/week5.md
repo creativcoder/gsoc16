@@ -9,5 +9,6 @@ This week's goals:
 
 The sel.wait() in receive_events() in `serviceworkerglobalscope`, is a blocking call so, we need to instead rely on a timer_port on the,
 workerglobalscope to take action for timeout events from workers.
+A timer thread was created which sends an event to the timer_chan on the `serviceworkerglobalscope`. This handles the termination of service workers gracefully.
 
-- [ ] Re-iterate code, on matching of scope urls of registered service workers. As per spec, matching needs to happen in, longest prefix way.
+- [X] Re-iterate code, on matching of scope urls of registered service workers. As per spec, matching needs to happen in, longest prefix way.
