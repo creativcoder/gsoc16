@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="registration">
-	<a href="/dashboard.html">Go to Dashboard</a>
+	<a href="/dashboard-page.html">Go to Dashboard</a>
 	<a href="/profile.html">Go to Profile</a>
 	 <iframe id="iframe_sw" width="" height="200"></iframe>
 	 <br>
@@ -30,13 +30,13 @@
 	}
 
 	function register_one() {
-	var reg = navigator.serviceWorker.register('sw_dashboard.js', { 'scope': '/dashboard.html' });
+	var reg = navigator.serviceWorker.register('sw_dashboard.js', { 'scope': '/dashboard' });
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
 
 	function register_two() {
-	var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile.html' });
+	var reg = navigator.serviceWorker.register('sw_profile.js', { 'scope': '/profile' });
 	console.log("From client worker registered: ", navigator.serviceWorker.controller);
 	console.log("Registered script source: ", navigator.serviceWorker.controller.scriptURL);
 	}
