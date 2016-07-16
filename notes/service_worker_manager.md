@@ -1,58 +1,7 @@
-To avoid, running service worker scopes forever, we can use the script threads event loop, to hook any activation requests
-originated by navigate events in constellation. 
 
-We introduce a:
+To manage running service workers, at different origins we need a Service Worker Manager, which lets us keep track of all registered service workers as well as any active service workers.
 
-A service worker manager, to marshall activation requests from the constellation navigate events.
-and send it back to the script thread, so it can invoke it from the per script thread registration map, stored in it.
-
-// manages various service workers running at different origins in the document
-struct ServiceWorkerManager {
- 	workers: HashMap<Url, Box<Fn()>>,
- 	// the receiver to receive ServiceWorkerMsg's from constellation
- 	receiver: IpcReceiver<ServiceWorkerMsg>
-}
-
- impl ServiceWorkerManager {
- 	fn new(receiver: IpcReceiver<ServiceWorkerMsg>) -> ServiceWorkerManager {
- 		ServiceWorkerManager {
- 			workers: HashMap::new(),
- 			receiver: receiver
- 		}
- 	}
- 	fn start(&mut self) {
-
- 		while let Ok(msg) = self.receiver.recv() {
- 			match msg {
- 				ServiceWorkerMsg::ActivateOnScope(url, script_sender) => {
- 					//workers.get(&url).activate();
- 					debug!("activation for scope : {:?}", url)
- 					script_sender.send(ActivateServiceWorker(url.clone())).unwrap();
- 				}
- 				ServiceWorkerMsg::NewRegistration(url) => {
- 					//let registration = ScriptThread::get_registration(&url);
- 					//self.workers.insert(url.clone(), registration.get_activator());
- 					debug!("registration for scope : {:?}", url)
- 				}
- 				ServiceWorkerMsg::Exit => {break;}
- 			}
- 		} 
- 	}
- }
-
-impl ServiceWorkerMessenger for IpcSender<ServiceWorkerMsg> {
-    fn new() -> IpcSender<ServiceWorkerMsg> {
-        let (sender, receiver) = ipc::channel().unwrap();
-        spawn_named("ServiceWorkerManager".to_owned(), move || {
-            ServiceWorkerManager::new(receiver).start();
-        });
-        sender
-    }
-}
-
-pub trait ServiceWorkerMessenger {
-    fn new() -> Self;
-}
+The Service Worker Manager is instantiated in script::init(), during the constellation creation process.
 
 Update 01 June 2016
 
@@ -69,11 +18,10 @@ do not have a reference to their runtime, in which JS objects live in.
 
 Trait objects must not be sent cross process.
 
-Upon, calling `register()` from service worker container, the script thread, is instructed to store the scope url and the Boxed closure to its,
-local storage.
+Upon, calling `register()` from service worker container, the script thread is instructed to store the scope url and the ScopeThings struct in its TLS.
 
 When constellation receives the navigation events, then it notifies the script thread, along with a (sender to the service worker manager), that 
 script thread can use to send the activator closure to the manager, so that it call call the closure to spawn the respective service worker.
 
-The SW manager's need to be one per content process, and one per constellation, to be able to send a sender, to it, from each script thread
+The SW manager's need to be one per content process and one per constellation to be able to send a sender to it from each script thread
 that gets created.

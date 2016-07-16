@@ -2,6 +2,16 @@
 
 Implementing Service Worker infrastructure in Servo Browser Engine.
 
+This project aims to implement the foundations necessary for the Service Workers Api in [Servo Browser Engine](https://github.com/servo/servo). The implementation as of now is a non-standard implementation, which does not mandate the use of promises as the promises api hasn't landed in Servo yet, also the cache and notification api is not implemented due to same reason.
+
+The end goal of the project is to make the basic service worker dom api's available on Servo browser, and to allow registration of Service Workers and to be able to make them run when navigated to that scope.
+
+The following api's are available on servo to interact with Service Workers:
+* ServiceWorkerContainer : i.e., `navigator.serviceWorker` on the navigator dom object.
+* ServiceWorkerRegistration
+* ServiceWorkerGlobalScope
+* ServiceWorker
+
 * [Servo Project Wiki](https://github.com/servo/servo/wiki/Summer-of-Code-2016:-ServiceWorker-infrastructure)
 * [Mozilla Proposals Page](https://summerofcode.withgoogle.com/organizations/5256839985889280/#4504639135285248)
 
@@ -15,7 +25,7 @@ Implementing Service Worker infrastructure in Servo Browser Engine.
 
 * [Implement Service Workers API](https://github.com/servo/servo/issues/11091)
 
-## Test page for Servo specific Service Workers
+## Test page for Servo specific Service Workers implementation
 
 * [gh-pages](https://github.com/creativcoder/gsoc16/tree/gh-pages)
 
@@ -23,3 +33,7 @@ Implementing Service Worker infrastructure in Servo Browser Engine.
 
 * [Service Workers Spec](https://github.com/slightlyoff/ServiceWorker)
 * [Servo Design Wiki](https://github.com/servo/servo/wiki/Design)
+
+## Talks presented during GSoC'16 period
+
+* [Contributing to Servo](https://github.com/opensource101/contributing_to_servo)
