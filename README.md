@@ -7,19 +7,26 @@ This project aims to implement the foundations necessary for the Service Workers
 The end goal of the project is to make the basic service worker dom api's available on Servo browser, and to allow registration of Service Workers and to be able to make them run when navigated to that scope.
 
 The following api's are available on servo to interact with Service Workers:
+
+
 * ServiceWorkerContainer : i.e., `navigator.serviceWorker` on the navigator dom object.
 * ServiceWorkerRegistration
 * ServiceWorkerGlobalScope
 * ServiceWorker
 
+
 * [Servo Project Wiki](https://github.com/servo/servo/wiki/Summer-of-Code-2016:-ServiceWorker-infrastructure)
 * [Mozilla Proposals Page](https://summerofcode.withgoogle.com/organizations/5256839985889280/#4504639135285248)
 
-## Pull Requests
+## Related Pull Requests
 
 * [Interface for Custom Responses](https://github.com/servo/servo/pull/10961) Merged
 * [Implement related Service Worker interface and Register method](https://github.com/servo/servo/pull/11114) Merged
-* [Integrate Service worker manager thread](https://github.com/servo/servo/pull/11727) In Progress
+* [Integrate Service worker manager thread](https://github.com/servo/servo/pull/11727) Merged
+* [Remove expect calls in service worker manager thread](https://github.com/servo/servo/pull/12518) Merged
+* [Bring back run_with_memory_reporting in serviceworkerglobalscope](https://github.com/servo/servo/pull/12557) Merged
+* [Make the service worker send custom response](https://github.com/servo/servo/pull/12582) Merged
+* [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682)
 
 ## Meta Project Tracker
 

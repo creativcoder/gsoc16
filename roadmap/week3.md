@@ -1,4 +1,7 @@
 
+NOTE: The code snippets mentioned in these notes, may not reflect the current implementation in Servo, as different design descisions
+had to be taken further down the road. But this still provides a history of changes of how it was approached.
+
 This week's goals: Merged in [PR](https://github.com/servo/servo/pull/11114)
 
 - [X] Integrate Service Worker Client with the interfaces built in previous week.
