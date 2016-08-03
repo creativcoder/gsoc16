@@ -31,7 +31,7 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Service Worker Design overview
 
- [Doc](notes/service_worker_design_overview.md)
+* [design_overview](design_overview/README.md)
 
 ## Meta Project Tracker
 
