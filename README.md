@@ -29,6 +29,9 @@ The following api's are available on servo to interact with Service Workers:
 * [Make the service worker send custom response](https://github.com/servo/servo/pull/12582) Merged
 * [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682)
 
+## Service Worker Design overview
+
+ [Doc](notes/service_worker_design_overview.md)
 
 ## Meta Project Tracker
 
