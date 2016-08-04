@@ -5,7 +5,7 @@ This post will give an overview of the current implementation of SW's in Servo. 
 To get a basic idea of what Service Workers are refer to my [previous](http://creativcoder.xyz/post/service-workers-on-web/) blog post about them.
 
 Before we talk about them, some basic constructs in Servo's architecture needs to be mentioned.
-This only covers topics in a way that is in interest to SW's implementation. To get a broad overview of Servo's architecture refer, to the Wiki or my brief blog post.
+This only covers topics in a way that is in interest to SW's implementation. To get a broad overview of Servo's architecture refer, to the [Wiki](https://github.com/servo/servo/wiki/Design) or my brief [blog post](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/).
 
 A constellation is a co-ordinator of various pipelines.
 A pipeline in Servo is an abstraction of a Script Thread, Layout Thread, Paint Thread.

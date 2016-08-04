@@ -27,11 +27,11 @@ The following api's are available on servo to interact with Service Workers:
 * [Remove expect calls in service worker manager thread](https://github.com/servo/servo/pull/12518) Merged
 * [Bring back run_with_memory_reporting in serviceworkerglobalscope](https://github.com/servo/servo/pull/12557) Merged
 * [Make the service worker send custom response](https://github.com/servo/servo/pull/12582) Merged
-* [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682)
+* [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682) Merged
 
 ## Service Worker Design overview
 
-* [design_overview](design_overview/README.md)
+* [Design_overview](design_overview/README.md)
 
 ## Meta Project Tracker
 
