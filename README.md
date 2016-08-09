@@ -37,6 +37,9 @@ The following api's are available on servo to interact with Service Workers:
 
 * [Implement Service Workers API](https://github.com/servo/servo/issues/11091)
 
+## Unresolved Issues
+* [Provide a Sender for ServiceWorker object to communicate to its ServiceWorkerGlobalScope](https://github.com/servo/servo/issues/12773)
+
 ## Test page for Servo specific Service Workers implementation
 
 * [gh-pages](https://github.com/creativcoder/gsoc16/tree/gh-pages)
@@ -45,6 +48,13 @@ The following api's are available on servo to interact with Service Workers:
 
 * [Service Workers Spec](https://github.com/slightlyoff/ServiceWorker)
 * [Servo Design Wiki](https://github.com/servo/servo/wiki/Design)
+
+## Blog posts
+
+* [Basic Service Worker support lands in Servo](http://creativcoder.xyz/post/service-worker-in-servo/)
+* [Post community bonding period with Servo](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/)
+* [Introduction to Service Workers](http://creativcoder.xyz/post/service-workers-on-web/)
+* [GSoC begins with Servo](http://creativcoder.xyz/post/so-it-begins-gsoc16/)
 
 ## Talks presented during GSoC'16 period
 
