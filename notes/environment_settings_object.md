@@ -1,9 +1,9 @@
-A Javascript engine begins its life with a JSRuntime, which is the parent object, for all things involving javascript. There is only a single instance of JSRuntime.
+A Javascript engine begins its life with a JSRuntime which is the parent object for all things involving javascript. There is only a single instance of JSRuntime.
 
-The JSContext object, is a derived or a child object of JSRuntime, that is actually responsible for executing js script code.
-There can be many execution contexts, per thread created by the JSRuntime.
+The JSContext object is a derived/child object of JSRuntime that is responsible for executing js script code.
+There can be many execution contexts per thread created by the JSRuntime.
 
-At the start, a global execution context is created. Its a container that can contain nested child execution contexts; whenever a new function scope is invoked in js code. It contains various runtime information such as variable name to value bindings.
+At the start a global execution context is created. Its a container that can contain nested child execution contexts whenever a new function scope is invoked in js code. It contains various runtime information such as global variable name to value bindings.
 
 The Environment Settings object, is basically all global information pertaining to the current runtime execution context, that child scripts (that are executed within the global execution context) can use, to find the information they need.
 

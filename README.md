@@ -40,6 +40,8 @@ The following api's are available on servo to interact with Service Workers:
 ## Unresolved Issues
 * [Provide a Sender for ServiceWorker object to communicate to its ServiceWorkerGlobalScope](https://github.com/servo/servo/issues/12773)
 
+* [Implement FetchEvent interface] - Waiting on [#11894](https://github.com/servo/servo/issues/11894) and [#4282](https://github.com/servo/servo/issues/4282)
+
 ## Test page for Servo specific Service Workers implementation
 
 * [gh-pages](https://github.com/creativcoder/gsoc16/tree/gh-pages)
