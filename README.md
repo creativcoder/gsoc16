@@ -2,12 +2,12 @@
 
 Implementing Service Worker infrastructure in Servo Browser Engine.
 
-This project aims to implement the foundations necessary for the Service Workers Api in [Servo Browser Engine](https://github.com/servo/servo). The implementation as of now is a non-standard implementation, which does not mandate the use of promises as the promises api hasn't landed in Servo yet, also the cache and notification api is not implemented due to same reason.
+This project aims to implement the foundations necessary for the Service Workers Api in [Servo Browser Engine](https://github.com/servo/servo). The implementation as of now is a non-standard, which does not mandate the use of promises as Promises api hasn't landed in Servo yet, also the Cache and Notification Api is not implemented due to same reason.
 
 * [Servo Project Wiki](https://github.com/servo/servo/wiki/Summer-of-Code-2016:-ServiceWorker-infrastructure)
 * [Mozilla Proposals Page](https://summerofcode.withgoogle.com/organizations/5256839985889280/#4504639135285248)
 
-The end goal of the project is to make the basic service worker dom api's available on Servo browser, and to allow registration of Service Workers and to be able to make them run when navigated to that scope.
+The end goal of the project is to make basic service worker DOM Api's available on Servo browser; to allow registration of Service Workers and to be able to make them run when navigated to that scope.
 
 The following api's are available on servo to interact with Service Workers:
 
@@ -18,6 +18,13 @@ The following api's are available on servo to interact with Service Workers:
 * ServiceWorkerGlobalScope
 
 * ServiceWorker
+
+## Blog posts
+
+* [Basic Service Worker support lands in Servo](http://creativcoder.xyz/post/service-worker-in-servo/)
+* [Post community bonding period with Servo](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/)
+* [Introduction to Service Workers](http://creativcoder.xyz/post/service-workers-on-web/)
+* [GSoC begins with Servo](http://creativcoder.xyz/post/so-it-begins-gsoc16/)
 
 ## Related Pull Requests
 
@@ -40,7 +47,7 @@ The following api's are available on servo to interact with Service Workers:
 ## Unresolved Issues
 * [Provide a Sender for ServiceWorker object to communicate to its ServiceWorkerGlobalScope](https://github.com/servo/servo/issues/12773)
 
-* [Implement FetchEvent interface] - Waiting on [#11894](https://github.com/servo/servo/issues/11894) and [#4282](https://github.com/servo/servo/issues/4282)
+* Implement FetchEvent interface - Waiting on Fetch Api [#11894](https://github.com/servo/servo/issues/11894) and Promises Api [#4282](https://github.com/servo/servo/issues/4282)
 
 ## Test page for Servo specific Service Workers implementation
 
@@ -51,12 +58,6 @@ The following api's are available on servo to interact with Service Workers:
 * [Service Workers Spec](https://github.com/slightlyoff/ServiceWorker)
 * [Servo Design Wiki](https://github.com/servo/servo/wiki/Design)
 
-## Blog posts
-
-* [Basic Service Worker support lands in Servo](http://creativcoder.xyz/post/service-worker-in-servo/)
-* [Post community bonding period with Servo](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/)
-* [Introduction to Service Workers](http://creativcoder.xyz/post/service-workers-on-web/)
-* [GSoC begins with Servo](http://creativcoder.xyz/post/so-it-begins-gsoc16/)
 
 ## Talks presented during GSoC'16 period
 

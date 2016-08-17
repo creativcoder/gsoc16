@@ -2,7 +2,7 @@ Note: This is a copied from the [original](https://gist.github.com/jdm/84df9dee8
 
 To leverage the SpiderMonkey engine as a javascript environment every application (in our case Servo) needs three things (mentioned in order of their initialization):
 
-A JS_Runtime - The heap space where everything related to spidermonkey resides such as the execution contexts, variables, objects, scripts. It is also responsible for initializing the heap space used by SpiderMonkey VM.
+A JS_Runtime - The region where everything related to spidermonkey resides such as the execution contexts, variables, objects, scripts. It is also responsible for initializing the heap space used by SpiderMonkey VM.
 
 A JS_Context - A code execution context, which provides a stack implementation that various constructs in javascript can use. Also provides support for js exeptions and exception propagation. There can be many execution contexts but only one active during js code execution. This context is not exposed to the user by any js native functions.
 
