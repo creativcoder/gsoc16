@@ -35,7 +35,7 @@ The following api's are available on servo to interact with Service Workers:
 * [Bring back run_with_memory_reporting in serviceworkerglobalscope](https://github.com/servo/servo/pull/12557) Merged
 * [Make the service worker send custom response](https://github.com/servo/servo/pull/12582) Merged
 * [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682) Merged
-* [Implement postMessage for ServiceWorkers](https://github.com/servo/servo/pull/12910)
+* [Implement postMessage for ServiceWorkers](https://github.com/servo/servo/pull/12910) Merged
 
 ## Service Worker Design overview
 
@@ -46,8 +46,6 @@ The following api's are available on servo to interact with Service Workers:
 * [Implement Service Workers API](https://github.com/servo/servo/issues/11091)
 
 ## Unresolved Issues
-* [Provide a Sender for ServiceWorker object to communicate to its ServiceWorkerGlobalScope](https://github.com/servo/servo/issues/12773)
-
 * Implement FetchEvent interface - Waiting on Fetch Api [#11894](https://github.com/servo/servo/issues/11894) and Promises Api [#4282](https://github.com/servo/servo/issues/4282)
 
 ## Test page for Servo specific Service Workers implementation
