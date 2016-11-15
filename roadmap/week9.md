@@ -7,7 +7,7 @@ This weeks goals:
 
 [X] Decouple scope matching to a seperate method, and add senders list and message bufffers to Service Worker Manager.
 
-[ ] Implement `postMessage` on ServiceWorker object.
+[X] Implement `postMessage` on ServiceWorker object.
 
 Issues to Resolve: 
 

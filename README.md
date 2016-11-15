@@ -37,6 +37,7 @@ The following api's are available on servo to interact with Service Workers:
 * [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682) Merged
 * [Implement postMessage for ServiceWorkers](https://github.com/servo/servo/pull/12910) Merged
 * [Implement ExtendableEvent as base type for ServiceWorker events](https://github.com/servo/servo/pull/13292) Merged
+* [Implement abstraction of a Job Queue](https://github.com/servo/servo/pull/13574) In Progress
 
 ## Service Worker Design overview
 
@@ -48,7 +49,7 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Live Issues
 
-* Implement FetchEvent interface - Waiting on Fetch Api [#11894](https://github.com/servo/servo/issues/11894)
+* Implement FetchEvent interface
 * Implement Job Abstraction - [#11894](https://github.com/servo/servo/issues/13424)
 
 ## Test page for Servo specific Service Workers implementation
