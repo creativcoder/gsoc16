@@ -21,10 +21,10 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Blog posts
 
-* [Basic Service Worker support lands in Servo](http://creativcoder.xyz/post/service-worker-in-servo/)
-* [Post community bonding period with Servo](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/)
-* [Introduction to Service Workers](http://creativcoder.xyz/post/service-workers-on-web/)
-* [GSoC begins with Servo](http://creativcoder.xyz/post/so-it-begins-gsoc16/)
+* [Basic Service Worker support lands in Servo](http://creativcoder.me/post/service-worker-in-servo/)
+* [Post community bonding period with Servo](http://creativcoder.me/post/post-community-bonding-gsoc-servo/)
+* [Introduction to Service Workers](http://creativcoder.me/post/service-workers-on-web/)
+* [GSoC begins with Servo](http://creativcoder.me/post/so-it-begins-gsoc16/)
 
 ## Related Pull Requests
 
@@ -37,7 +37,7 @@ The following api's are available on servo to interact with Service Workers:
 * [Dispatch lifecycle events to service worker object and refactor html tests](https://github.com/servo/servo/pull/12682) Merged
 * [Implement postMessage for ServiceWorkers](https://github.com/servo/servo/pull/12910) Merged
 * [Implement ExtendableEvent as base type for ServiceWorker events](https://github.com/servo/servo/pull/13292) Merged
-* [Implement abstraction of a Job Queue](https://github.com/servo/servo/pull/13574) In Progress
+* [Implement abstraction of a Job Queue](https://github.com/servo/servo/pull/13574) Merged
 
 ## Service Worker Design overview
 
