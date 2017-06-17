@@ -21,10 +21,10 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Blog posts
 
-* [Basic Service Worker support lands in Servo](https://creativcoder.github.io/post/service-worker-in-servo/)
-* [Post community bonding period with Servo](https://creativcoder.github.io/post/post-community-bonding-gsoc-servo/)
-* [Introduction to Service Workers](https://creativcoder.github.io/post/service-workers-on-web/)
-* [GSoC begins with Servo](https://creativcoder.github.io/post/so-it-begins-gsoc16/)
+* [Basic Service Worker support lands in Servo](https://creativcoder.github.io/post/service_workers_servo/)
+* [Post community bonding period with Servo](https://creativcoder.github.io/post/community_bonding_gsoc_servo/)
+* [Introduction to Service Workers](https://creativcoder.github.io/post/service_workers_web/)
+* [GSoC begins with Servo](https://creativcoder.github.io/post/gsoc16_begins/)
 
 ## Related Pull Requests
 
