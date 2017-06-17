@@ -2,10 +2,10 @@ After a lot of redesign along with helpful guidance from [Josh](https://github.c
 
 This post will give an overview of the current implementation of SW's in Servo. Please note that the codebase in future is likely to change due to dependency over several features such as the Fetch Api [Tracking Issue](https://github.com/servo/servo/issues/11894) whose implementation is in progress and the Promise API [Tracking Issue](https://github.com/servo/servo/issues/4282). I also maintain a [repo](http://github.com/creativcoder/gsoc16) keeping track of SW implementation in Servo.
 
-To get a basic idea of what Service Workers are; refer to my [previous](http://creativcoder.xyz/post/service-workers-on-web/) blog post.
+To get a basic idea of what Service Workers are; refer to my [previous](https://creativcoder.github.io/post/service_workers_web/) blog post.
 
 Before we talk about them, its helpful to mention some key concepts in Servo's architecture.
-I only mention topics that is important to SW's implementation. To get a broad overview of Servo's architecture refer, to the [Servo Wiki](https://github.com/servo/servo/wiki/Design) or my [blog post](http://creativcoder.xyz/post/post-community-bonding-gsoc-servo/).
+I only mention topics that is important to SW's implementation. To get a broad overview of Servo's architecture refer, to the [Servo Wiki](https://github.com/servo/servo/wiki/Design).
 
 A constellation is a co-ordinator of various pipelines along with other entities such as the windowing system, resource manager, caching system, etc in Servo browser.
 A pipeline in Servo is an abstraction of a Script Thread, Layout Thread and a Paint Thread (basically a page which is in process of getting parsed and rendered to a window).
