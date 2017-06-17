@@ -21,10 +21,10 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Blog posts
 
-* [Basic Service Worker support lands in Servo](http://creativcoder.me/post/service-worker-in-servo/)
-* [Post community bonding period with Servo](http://creativcoder.me/post/post-community-bonding-gsoc-servo/)
-* [Introduction to Service Workers](http://creativcoder.me/post/service-workers-on-web/)
-* [GSoC begins with Servo](http://creativcoder.me/post/so-it-begins-gsoc16/)
+* [Basic Service Worker support lands in Servo](https://creativcoder.github.io/post/service-worker-in-servo/)
+* [Post community bonding period with Servo](https://creativcoder.github.io/post/post-community-bonding-gsoc-servo/)
+* [Introduction to Service Workers](https://creativcoder.github.io/post/service-workers-on-web/)
+* [GSoC begins with Servo](https://creativcoder.github.io/post/so-it-begins-gsoc16/)
 
 ## Related Pull Requests
 
@@ -50,7 +50,7 @@ The following api's are available on servo to interact with Service Workers:
 ## Live Issues
 
 * Implement FetchEvent interface
-* Implement Job Abstraction - [#11894](https://github.com/servo/servo/issues/13424)
+* Implement Update algorithm - [#14263](https://github.com/servo/servo/issues/14263)
 
 ## Test page for Servo specific Service Workers implementation
 
@@ -64,4 +64,4 @@ The following api's are available on servo to interact with Service Workers:
 
 ## Talks presented during GSoC'16 period
 
-* [Contributing to Servo](https://github.com/opensource101/contributing_to_servo)
+* [Contributing to Servo](https://opensource101.github.io/contributing_to_servo)
